@@ -1,6 +1,9 @@
 package p02_06_2022_zadatak_5;
 
 public class Dodatak {
+
+
+
     private String nazivDodatka;
     private int cenaDodatka;
 

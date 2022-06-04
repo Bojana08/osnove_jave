@@ -47,10 +47,11 @@ public class IcePoint extends Proizvod {
         } else {
             System.out.println("Velicina: Veliki IcePoint.");
         }
-        System.out.println("Dodaci: ");
+        System.out.print("Dodaci: ");
         for (int i = 0; i < nizDodataka.size(); i++) {
-            System.out.println(nizDodataka.get(i).getNazivDodatka() + " ");
+            System.out.print(nizDodataka.get(i).getNazivDodatka() + " ");
         }
+        System.out.println();
         System.out.println("Cena: " + ukupnaCena());
     }
 }

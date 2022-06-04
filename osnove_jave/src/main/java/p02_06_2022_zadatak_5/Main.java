@@ -41,7 +41,7 @@ public class Main {
 //        po nekoliko dodataka i na kraju ispisati ukupnu cenu porudzbine.
 
 
-                Proizvod iP1 = new IcePoint("vanila", true);
+        Proizvod iP1 = new IcePoint("vanila", true);
         Proizvod iP2 = new IcePoint("vanila", false);
         Proizvod iP3 = new IcePoint("cokolada", true);
 
@@ -67,6 +67,28 @@ public class Main {
         p2.ubaciDodatak(kecap);
         p2.ubaciDodatak(origano);
 
+        ArrayList<Proizvod> proizvodi = new ArrayList<Proizvod>();
+
+        proizvodi.add(iP1);
+        proizvodi.add(iP2);
+        proizvodi.add(iP3);
+        proizvodi.add(p1);
+        proizvodi.add(p2);
+
+        int ukupnaSuma = 0;
+        for (int i = 0; i < proizvodi.size(); i++) {
+            ukupnaSuma = ukupnaSuma + proizvodi.get(i).ukupnaCena();
+        }
+
+        Kasa k = new Kasa();
+        k.dodajProizvod(iP1);
+        p1.ubaciDodatak(k.nadjidodatak("prsuta"));
+        k.dodajProizvod(iP2);
+        k.dodajProizvod(p1);
+        k.dodajProizvod(p2);
+
+        k.stampajRacun();
+
         iP1.stampa();
         System.out.println();
         iP2.stampa();
@@ -76,6 +98,9 @@ public class Main {
         p1.stampa();
         System.out.println();
         p2.stampa();
+
+        System.out.println();
+        System.out.println("Ukupna cena porudzbine je: " + ukupnaSuma);
 
     }
 
