@@ -8,6 +8,12 @@ public class Auto {
     public int brzina;
     public String registracija;
     public boolean klima;
+    public int godinaProizvodnje;
+    public int mesecRegistracije;
+    public int kubikaza;
+    public int kapacitetRezervoara;
+    public int kolicinaGorivaURezervoaru;
+
 
     public void stampaj() {
         System.out.println(this.imeIPrezime);
@@ -49,6 +55,42 @@ public class Auto {
         }
         return (this.brzina / 100.0 * this.potrosnja) * 1.0;
     }
+
+    public boolean autoJeOldTimer() {
+        if (this.godinaProizvodnje < 1950) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean registracijaJeIstekla(int trenutniMesec) {
+        if (trenutniMesec > this.mesecRegistracije) {
+            return true;
+        }
+        return false;
+    }
+
+    public double cenaRegistracije() {
+        if (this.kubikaza < 2000) {
+            return this.kubikaza * 100;
+        }
+        return this.kubikaza * 100 * 1.3;
+    }
+
+    public int natociGorivo(int litrazaGorivaKojaSeToci) {
+        if (litrazaGorivaKojaSeToci <= (this.kapacitetRezervoara - this.kolicinaGorivaURezervoaru)) {
+            return litrazaGorivaKojaSeToci * 170;
+        }
+        return (this.kapacitetRezervoara - this.kolicinaGorivaURezervoaru) * 170;
+    }
+
+    public boolean brzinaAuta(Auto bmw) {
+        if (this.brzina == bmw.brzina) {
+            return true;
+        }
+        return false;
+    }
+
 }
 
 
