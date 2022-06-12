@@ -33,10 +33,10 @@ public class Zadatak1 {
                     .findElement(By.xpath("//div[contains(@class, 'col-md-12')]/div[last()]/button[contains(@class, 'close')]"))
                     .click();
             List<WebElement> elements1 = driver.findElements(By.className("close"));
-            if (elements1.size() == elements.size()) {
-                System.out.println("Element is not deleted.");
-            } else {
+            if (elements1.size() == elements.size() - 1 - i) {
                 System.out.println("Element is deleted.");
+            } else {
+                System.out.println("Element is not deleted.");
             }
             Thread.sleep(1000);
         }
